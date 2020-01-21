@@ -1,0 +1,50 @@
+#!/bin/bash
+echo 'Kalkulator by Patryk Andrzejewski'
+echo '*********************************'
+wartosca=0
+wartoscb=0
+wynik=0
+echo 'Podaj wartosc'
+read wartosca
+until [[ $funkcja -eq 1 ]]
+do
+	echo 'Podaj znak ( 0 = , 1 + , 2 - , 3 * , 4 / )'
+	read znak
+	if [ $znak -eq 1 ]
+		then
+		echo 'Podaj wartosc'
+		read wartoscb
+		wynik=$(($wartosca + $wartoscb))
+		wartosca=$wynik
+		echo "Wynik wynosi $wynik"
+	fi
+	if [ $znak -eq 2 ]
+		then
+		echo 'Podaj wartosc'
+		read wartoscb
+		wynik=$(($wartosca - $wartoscb))
+		wartosca=$wynik
+		echo "Wynik wynosi $wynik"
+	fi
+	if [ $znak -eq 3 ]
+		then
+		echo 'Podaj wartosc'
+		read wartoscb
+		wynik=$(($wartosca * $wartoscb))
+		wartosca=$wynik
+		echo "Wynik wynosi $wynik"
+	fi
+	if [ $znak -eq 4 ]
+		then
+		echo 'Podaj wartosc'
+		read wartoscb
+		wynik=$(($wartosca / $wartoscb))
+		wartosca=$wynik
+		echo "Wynik wynosi $wynik"
+
+	fi
+	if [ $znak -eq 0 ]
+		then
+		((++funkcja))
+	fi
+done
